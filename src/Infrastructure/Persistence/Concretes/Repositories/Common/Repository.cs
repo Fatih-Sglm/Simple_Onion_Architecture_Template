@@ -1,14 +1,8 @@
-﻿using Application.Abstractions.Repository.Common;
+﻿using Application.Abstractions.Repositories.Common;
 using Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Query;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.Concretes.Repositories.Common
 {
@@ -70,7 +64,7 @@ namespace Persistence.Concretes.Repositories.Common
 
         public async Task<int> SaveChangesAsync()
         {
-           return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
 
         public Task Update(TEntity entity)

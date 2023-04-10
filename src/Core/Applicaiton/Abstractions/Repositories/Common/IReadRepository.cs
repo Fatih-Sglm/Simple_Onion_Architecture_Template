@@ -1,15 +1,10 @@
 ﻿using Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore.Query;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Abstractions.Repository.Common
+namespace Application.Abstractions.Repositories.Common
 {
-    public interface IReadRepository<TEntity> where TEntity : class , IEntity , new()
+    public interface IReadRepository<TEntity> where TEntity : class, IEntity, new()
     {
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, Func<IQueryable<TEntity>,
                                          IIncludableQueryable<TEntity, object>>? include = null, bool enableTracking = true,

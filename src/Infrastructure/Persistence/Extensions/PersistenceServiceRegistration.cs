@@ -1,4 +1,4 @@
-﻿using Application.Abstractions.Repository.Common;
+﻿using Application.Abstractions.Repositories.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,18 +11,18 @@ namespace Persistence.Extensions
     {
         // Bu projede kullanacağınız servisleri IoC mekanizmasına ekleyecek olan fonksiyondur.
         // This is the function that will add the services you will use in this project to the IoC mechanism.
-        public static IServiceCollection AddPersistenceServiceRegistration(this IServiceCollection services , IConfiguration configuration)
+        public static IServiceCollection AddPersistenceServiceRegistration(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicaitonDbContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("SqlConnection")));
-            AddRepositoryToIoC(services , Assembly.GetExecutingAssembly());
+            AddRepositoryToIoC(services, Assembly.GetExecutingAssembly());
             return services;
         }
 
         // Repository lerin otomatik olarak IoC Container a eklenmesini sağlayan metod
         //Method that enables automatic addition of repositories to IoC Container
-        private static IServiceCollection AddRepositoryToIoC(IServiceCollection services , Assembly assembly)
+        private static IServiceCollection AddRepositoryToIoC(IServiceCollection services, Assembly assembly)
         {
-            var reposiories = assembly.GetTypes().Where(x=> x.IsAssignableToGenericType(typeof(IRepository<>)) && !x.IsGenericType);
+            var reposiories = assembly.GetTypes().Where(x => x.IsAssignableToGenericType(typeof(IRepository<>)) && !x.IsGenericType);
             foreach (var item in reposiories)
             {
                 var @interface = item.GetInterfaces().FirstOrDefault(x => !x.IsGenericType) ?? throw new ArgumentNullException();

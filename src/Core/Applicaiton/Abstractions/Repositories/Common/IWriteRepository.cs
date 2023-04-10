@@ -1,11 +1,6 @@
 ﻿using Domain.Entities.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Abstractions.Repository.Common
+namespace Application.Abstractions.Repositories.Common
 {
     public interface IWriteRepository<TEntity> where TEntity : class, IEntity, new()
     {
