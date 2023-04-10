@@ -9,11 +9,12 @@ namespace Application.Abstractions.Repository.Common
 {
     public interface IWriteRepository<TEntity> where TEntity : class, IEntity, new()
     {
-        Task<bool> AddAsync(TEntity entity);
-        Task<bool> AddRangeAsync(IEnumerable<TEntity> entities);
-        bool Update(TEntity entity);
-        bool Remove(TEntity entity);
-        bool RemoveRange(IEnumerable<TEntity> entities);
+        Task AddAsync(TEntity entity);
+        Task AddRangeAsync(IEnumerable<TEntity> entities);
+        Task Update(TEntity entity);
+        Task UpdateRange(IEnumerable<TEntity> entities);
+        Task Remove(TEntity entity);
+        Task RemoveRange(IEnumerable<TEntity> entities);
         Task<int> SaveChangesAsync();
     }
 }

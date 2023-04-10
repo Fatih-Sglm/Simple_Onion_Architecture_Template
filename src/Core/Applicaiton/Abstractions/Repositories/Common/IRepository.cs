@@ -10,14 +10,6 @@ namespace Application.Abstractions.Repository.Common
 {
     public interface IRepository<TEntity> : IWriteRepository<TEntity> , IReadRepository<TEntity>  where TEntity : class, IEntity, new()
     {
-        /// <summary>
-        /// 
-        /// </summary>
         IQueryable<TEntity> Query { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        DbSet<TEntity> Table { get; }
     }
 }

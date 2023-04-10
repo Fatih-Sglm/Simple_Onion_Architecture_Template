@@ -14,6 +14,11 @@ namespace Persistence.Context
         {
         }
 
+        // Entityleri db ye kaydederken içerdiği dateTime propertylerini otomatik olarak ekleyen bir metod
+        // Not : Eğer PostgreSql kullanacaksanız DateTime yerine DateTime.Utc.Now Kullanmanız gerekiyor
+
+        // A method that automatically adds dateTime properties contained in entities while saving to the database
+        // Note: If you're using PostgreSql, you need to use DateTime.Utc.Now instead of DateTime
         public async override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var datas = ChangeTracker.Entries<IEntity>();

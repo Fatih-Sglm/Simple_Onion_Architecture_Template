@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddApplicationServiceRegistration();
-builder.Services.AddPersistenceServiceRegistrationRegistration(builder.Configuration);
+builder.Services.AddPersistenceServiceRegistration(builder.Configuration);
 builder.Services.AddInfrastructureServiceRegistration();
 builder.Services.AddSwaggerGen();
 
