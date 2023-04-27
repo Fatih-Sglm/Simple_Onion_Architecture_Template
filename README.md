@@ -1,8 +1,8 @@
 # Simple Onion Architecture
 
-This project is a plugin that installs the basic architectural structure for those who want to develop a project using the oninon architecture.
+This project is a template that installs the basic architectural structure for those who want to develop a project using the onion architecture.
 
-You can access the plugin [here]((https://marketplace.visualstudio.com/items?itemName=FatihSglm.SimpleOnionArchitectureTemplate)).
+You can access the template [here](https://marketplace.visualstudio.com/items?itemName=FatihSglm.SimpleOnionArchitectureTemplate).
 
 # Project structure
 
